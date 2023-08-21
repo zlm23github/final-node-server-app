@@ -40,4 +40,4 @@ MoodController(app);
 UserController(app);
 AuthController(app);
 CargoController(app);
-app.listen(8080)
+app.listen(process.env.PORT || 8080)
