@@ -9,14 +9,14 @@ import CargoController from "./controller/cargo-controller.js";
 import moodController from "./controller/mood-controller.js";
 import MoodController from "./controller/mood-controller.js";
 
-mongoose.connect("mongodb://127.0.0.1:27017/final");
-// process.env.DB_CONNECTION_STRING ||
+mongoose.connect(process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/final");
+
 
 const app = express()
 app.use(cors(
     {
         credentials: true,
-        origin: "http://localhost:3000"
+        origin: process.env.FRONTEND_URL
         // 'http://localhost:3000'
         // process.env.FRONTEND_URL
     }
@@ -41,5 +41,4 @@ MoodController(app);
 UserController(app);
 AuthController(app);
 CargoController(app);
-app.listen(8080)
-// process.env.PORT ||
+app.listen(process.env.PORT || 8080)
