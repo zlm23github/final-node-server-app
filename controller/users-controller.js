@@ -72,6 +72,6 @@ const UserController = (app) => {
   app.get('/api/users', findAllUsers)
   app.post('/api/users', createUser);
   app.delete('/api/users/:uid', deleteUser);
-  app.put('/api/users', updateUser);
+  app.put('/api/users/:uid', updateUser);
 }
 export default UserController;
